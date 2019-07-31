@@ -1,3 +1,32 @@
-.App {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
   text-align: center;
+  margin-bottom: 40px;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.post {
+  padding: 15px;
+  max-width: 990px;
+  margin: 0 auto;
+}
+
+.post__title,
+.post__body {
+  margin-bottom: 20px;
+}
+
+.user {
+  margin-bottom: 20px;
 }
