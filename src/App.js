@@ -9,14 +9,8 @@ export default class App extends React.Component {
 
     this.state = {
       postsData: [],
+      isDataLoading: false 
     };
-  }
-
-  async componentDidMount() {
-    const posts = await getPosts();
-    const users = await getUsers();
-
-    this.setState({ postsData: this.getPostsWithUsers(posts, users) });
   }
 
   getPostsWithUsers(posts, users) {
@@ -26,21 +20,26 @@ export default class App extends React.Component {
     }));
   }
 
-  render() {
-    const { postsData } = this.state;
+  loadPostData = async () => {
+    this.setState(prevState => ({ isDataLoading: !prevState.isDataLoading }));
 
+    const posts = await getPosts();
+    const users = await getUsers();
+
+    this.setState({ postsData: this.getPostsWithUsers(posts, users) });
+  }
+
+  render() {
+    const { postsData, isDataLoading } = this.state;
+    
     return (
       <div className="app">
         <h1>Dynamic lists of Posts</h1>
-        {
-          postsData.length
-            ? <PostList postsData={postsData} />
-            : (
-              <div>
-            data is loading...
-              </div>
-            )
-        }
+        <PostList 
+          postsData={postsData}
+          loadPostData={this.loadPostData}
+          isDataLoading={isDataLoading}
+        />
       </div>
     );
   }

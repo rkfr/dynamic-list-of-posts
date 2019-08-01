@@ -6,6 +6,10 @@
   padding: 0;
 }
 
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 h1 {
   text-align: center;
   margin-bottom: 40px;
@@ -14,6 +18,16 @@ h1 {
 ul,
 li {
   list-style: none;
+}
+
+address {
+  font-style: normal;
+}
+
+.load-button {
+  display: block;
+  margin: 0 auto;
+  padding: 5px 10px;
 }
 
 .post {
@@ -29,4 +43,8 @@ li {
 
 .user {
   margin-bottom: 20px;
+}
+
+.address-item {
+  display: block;
 }
