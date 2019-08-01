@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import PostList from './components/PostList';
-import { getPosts, getUsers } from './api';
+import { getPosts, getUsers, getComments } from './api';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,10 +13,11 @@ export default class App extends React.Component {
     };
   }
 
-  getPostsWithUsers(posts, users) {
+  mergeData({ posts, users, comments }) {
     return posts.map(post => ({
       ...post,
       user: users.find(user => user.id === post.userId),
+      comments: comments.filter(comment => comment.postId === post.id)
     }));
   }
 
@@ -25,13 +26,14 @@ export default class App extends React.Component {
 
     const posts = await getPosts();
     const users = await getUsers();
+    const comments = await getComments();
 
-    this.setState({ postsData: this.getPostsWithUsers(posts, users) });
+    this.setState({ postsData: this.mergeData({ posts, users, comments }) });
   }
 
   render() {
     const { postsData, isDataLoading } = this.state;
-    
+
     return (
       <div className="app">
         <h1>Dynamic lists of Posts</h1>

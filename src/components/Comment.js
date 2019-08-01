@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Comment = () => (<div>Comment</div>);
+const Comment = ({ comment }) => (<div>{comment.name}</div>);
 
 export default Comment;

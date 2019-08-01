@@ -1,8 +1,9 @@
 import React from 'react';
 import User from './User';
+import CommentList from './CommentList';
 
 const Post = ({ postData }) => {
-  const { title, body, user } = postData;
+  const { title, body, user, comments } = postData;
 
   return (
     <li className="post">
@@ -12,6 +13,7 @@ const Post = ({ postData }) => {
         userData={user}
         showFullData
       />
+      <CommentList comments={comments} />
     </li>
   );
 };
