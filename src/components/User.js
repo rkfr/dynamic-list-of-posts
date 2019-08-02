@@ -1,7 +1,7 @@
 import React from 'react';
 
-const User = ({ userData, showFullData }) => {
-  const { name, email, address: { city, street, suite } } = userData;
+const User = (props) => {
+  const { name, email, address } = props;
 
   return (
     <div className="user">
@@ -11,12 +11,12 @@ const User = ({ userData, showFullData }) => {
           <a href={`mailto: ${email}`}>{email}</a>
         </div>
         {
-          showFullData
+          address
           && (
           <div>
-            <span className="address-item">{city}</span>
-            <span className="address-item">{street}</span>
-            <span className="address-item">{suite}</span>
+            <span className="address-item">{address.city}</span>
+            <span className="address-item">{address.street}</span>
+            <span className="address-item">{address.suite}</span>
           </div>
           )
         }

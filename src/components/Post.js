@@ -3,15 +3,20 @@ import User from './User';
 import CommentList from './CommentList';
 
 const Post = ({ postData }) => {
-  const { title, body, user, comments } = postData;
+  const {
+    title, body, user, comments,
+  } = postData;
+  const { name, email, address } = user;
+
 
   return (
     <li className="post">
       <h2 className="post__title">{title}</h2>
       <p className="post__body">{body}</p>
       <User
-        userData={user}
-        showFullData
+        name={name}
+        email={email}
+        address={address}
       />
       <CommentList comments={comments} />
     </li>
