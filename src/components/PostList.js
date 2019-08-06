@@ -1,21 +1,21 @@
 import React from 'react';
 import Post from './Post';
-import filterPostsByWord from '../helpers';
+import filterPostsByString from '../helpers';
 
 export default class PostList extends React.Component {
   state = {
     filterKeyWord: '',
-    filteredData: [],
   };
 
-  getFilterKeyWord = ({ target: { value: filterKeyWord } }) => this.setState({ filterKeyWord });
+  getFilterKeyword = ({ target: { value: filterKeyWord } }) => this.setState({ filterKeyWord });
 
   render() {
     const {
       postsData, getPostData, isDataLoading,
     } = this.props;
 
-    const { filterKeyWord, filteredData } = this.state;
+    const { filterKeyWord } = this.state;
+    const filteredData = filterPostsByString(postsData, filterKeyWord);
     const postsToShow = filteredData.length ? filteredData : postsData;
 
     return (
@@ -43,19 +43,10 @@ export default class PostList extends React.Component {
                             type="text"
                             id="filter-input"
                             placeholder="Filter posts..."
-                            onInput={this.getFilterKeyWord}
+                            onChange={this.getFilterKeyword}
+                            value={filterKeyWord}
                           />
                         </label>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            this.setState({
-                              filteredData: filterPostsByWord(postsData, filterKeyWord),
-                            });
-                          }}
-                        >
-  Go
-                        </button>
                       </form>
                     </div>
                     <ul>
