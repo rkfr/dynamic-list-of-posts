@@ -20,6 +20,17 @@ li {
   list-style: none;
 }
 
+.container {
+  max-width: 990px;
+  margin: 0 auto;
+}
+
+.filter {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 0;
+}
+
 address {
   font-style: normal;
 }
@@ -31,8 +42,6 @@ address {
 }
 
 .post {
-  padding: 15px;
-  max-width: 990px;
   margin: 0 auto;
 }
 

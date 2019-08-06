@@ -4,10 +4,8 @@ import CommentList from './CommentList';
 
 const Post = ({ postData }) => {
   const {
-    title, body, user, comments,
+    title, body, user: { name, email, address }, comments,
   } = postData;
-  const { name, email, address } = user;
-
 
   return (
     <li className="post">
@@ -22,6 +20,5 @@ const Post = ({ postData }) => {
     </li>
   );
 };
-
 
 export default Post;
