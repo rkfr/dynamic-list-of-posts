@@ -1,4 +1,5 @@
 import React from 'react';
+import { Paper, Typography, ListItem } from '@material-ui/core';
 import User from './User';
 import CommentList from './CommentList';
 
@@ -8,16 +9,27 @@ const Post = ({ postData }) => {
   } = postData;
 
   return (
-    <li className="post">
-      <h2 className="post__title">{title}</h2>
-      <p className="post__body">{body}</p>
-      <User
-        name={name}
-        email={email}
-        address={address}
-      />
-      <CommentList comments={comments} />
-    </li>
+    <ListItem>
+      <Paper>
+        <Typography
+          component="h2"
+        >
+          {title}
+        </Typography>
+        <Typography
+          component="p"
+        >
+          {body}
+        </Typography>
+        <User
+          name={name}
+          email={email}
+          address={address}
+        />
+        <CommentList comments={comments} />
+      </Paper>
+
+    </ListItem>
   );
 };
 

@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
 import Comment from './Comment';
 
 export default class CommentList extends React.Component {
@@ -17,19 +19,21 @@ export default class CommentList extends React.Component {
     return (
       <div className="comments-list">
         <div>
-          <button
-            type="button"
+          <Button
+            variant="outlined"
+            color="default"
             onClick={this.showCommentsHandler}
+            size="small"
           >
             {showComments ? 'Hide comments' : 'Show comments'}
-          </button>
+          </Button>
         </div>
         {
           showComments
           && (
-          <ul>
+          <List>
             {comments.map(comment => <Comment key={comment.id} comment={comment} />)}
-          </ul>
+          </List>
           )
         }
 

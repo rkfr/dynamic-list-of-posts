@@ -1,4 +1,5 @@
 import React from 'react';
+import { List, Button, TextField } from '@material-ui/core';
 import Post from './Post';
 import filterPostsByString from '../helpers';
 
@@ -19,41 +20,39 @@ export default class PostList extends React.Component {
     const postsToShow = filteredData.length ? filteredData : postsData;
 
     return (
-      <div className="post-list">
+      <div>
         {
               !postsData.length
                 ? (
                   <div>
-                    <button
-                      type="button"
-                      className="load-button"
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      size="large"
                       disabled={isDataLoading}
                       onClick={getPostData}
                     >
                       {!isDataLoading ? 'Load' : 'Loading...'}
-                    </button>
+                    </Button>
                   </div>
                 )
                 : (
                   <>
-                    <div className="filter">
+                    <div>
                       <form>
-                        <label htmlFor="filter-input">
-                          <input
-                            type="text"
-                            id="filter-input"
-                            placeholder="Filter posts..."
-                            onChange={this.getFilterKeyword}
-                            value={filterKeyWord}
-                          />
-                        </label>
+                        <TextField
+                          margin="normal"
+                          label="Filter posts..."
+                          value={filterKeyWord}
+                          onChange={this.getFilterKeyword}
+                        />
                       </form>
                     </div>
-                    <ul>
+                    <List>
                       {postsToShow.map(post => (
                         <Post key={post.id} postData={post} />
                       ))}
-                    </ul>
+                    </List>
                   </>
                 )
             }

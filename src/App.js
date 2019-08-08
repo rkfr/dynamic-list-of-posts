@@ -1,7 +1,8 @@
 import React from 'react';
-import './App.css';
+import { Typography } from '@material-ui/core';
 import PostList from './components/PostList';
 import { getPosts, getUsers, getComments } from './api';
+import './App.css';
 
 export default class App extends React.Component {
   state = {
@@ -16,7 +17,9 @@ export default class App extends React.Component {
     const users = await getUsers();
     const comments = await getComments();
 
-    this.setState({ postsData: this.mergeData({ posts, users, comments }) });
+    setTimeout(() => {
+      this.setState({ postsData: this.mergeData({ posts, users, comments }) });
+    }, 500);
   }
 
   mergeData = ({ posts, users, comments }) => posts.map(post => ({
@@ -30,8 +33,15 @@ export default class App extends React.Component {
 
     return (
       <div className="app">
+        <Typography
+          variant="h3"
+          align="center"
+          gutterBottom
+          component="h1"
+        >
+            Dynamic lists of Posts
+        </Typography>
         <div className="container">
-          <h1>Dynamic lists of Posts</h1>
           <PostList
             postsData={postsData}
             getPostData={this.getPostData}

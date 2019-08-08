@@ -1,12 +1,18 @@
 import React from 'react';
+import Typography from '@material-ui/core/Typography';
 
 const User = (props) => {
   const { name, email, address } = props;
 
   return (
-    <div className="user">
-      <h3 className="user__name">{name}</h3>
-      <address className="user__adress">
+    <div>
+      <Typography
+        variant="h6"
+        component="h4"
+      >
+        {name}
+      </Typography>
+      <address>
         <div>
           <a href={`mailto: ${email}`}>{email}</a>
         </div>
@@ -14,9 +20,9 @@ const User = (props) => {
           address
           && (
           <div>
-            <span className="address-item">{address.city}</span>
-            <span className="address-item">{address.street}</span>
-            <span className="address-item">{address.suite}</span>
+            <span>{address.city}</span>
+            <span>{address.street}</span>
+            <span>{address.suite}</span>
           </div>
           )
         }

@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1 {
@@ -23,37 +23,4 @@ li {
 .container {
   max-width: 990px;
   margin: 0 auto;
-}
-
-.filter {
-  display: flex;
-  justify-content: flex-end;
-  padding: 15px 0;
-}
-
-address {
-  font-style: normal;
-}
-
-.load-button {
-  display: block;
-  margin: 0 auto;
-  padding: 5px 10px;
-}
-
-.post {
-  margin: 0 auto;
-}
-
-.post__title,
-.post__body {
-  margin-bottom: 20px;
-}
-
-.user {
-  margin-bottom: 20px;
-}
-
-.address-item {
-  display: block;
 }
