@@ -1,16 +1,25 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import { Paper, Typography, ListItem } from '@material-ui/core';
 import User from './User';
 import CommentList from './CommentList';
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: theme.spacing(3, 2),
+  },
+}));
+
 const Post = ({ postData }) => {
+  const classes = useStyles();
+
   const {
     title, body, user: { name, email, address }, comments,
   } = postData;
 
   return (
     <ListItem>
-      <Paper>
+      <Paper className={classes.root}>
         <Typography
           component="h2"
         >

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography, Box } from '@material-ui/core';
 import PostList from './components/PostList';
 import { getPosts, getUsers, getComments } from './api';
 import './App.css';
@@ -17,9 +17,7 @@ export default class App extends React.Component {
     const users = await getUsers();
     const comments = await getComments();
 
-    setTimeout(() => {
-      this.setState({ postsData: this.mergeData({ posts, users, comments }) });
-    }, 500);
+    this.setState({ postsData: this.mergeData({ posts, users, comments }) });
   }
 
   mergeData = ({ posts, users, comments }) => posts.map(post => ({
@@ -32,7 +30,7 @@ export default class App extends React.Component {
     const { postsData, isDataLoading } = this.state;
 
     return (
-      <div className="app">
+      <Box className="app">
         <Typography
           variant="h3"
           align="center"
@@ -41,14 +39,14 @@ export default class App extends React.Component {
         >
             Dynamic lists of Posts
         </Typography>
-        <div className="container">
+        <Box className="container">
           <PostList
             postsData={postsData}
             getPostData={this.getPostData}
             isDataLoading={isDataLoading}
           />
-        </div>
-      </div>
+        </Box>
+      </Box>
     );
   }
 }

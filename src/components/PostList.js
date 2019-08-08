@@ -1,5 +1,7 @@
 import React from 'react';
-import { List, Button, TextField } from '@material-ui/core';
+import {
+  List, Button, TextField, Box,
+} from '@material-ui/core';
 import Post from './Post';
 import filterPostsByString from '../helpers';
 
@@ -20,11 +22,11 @@ export default class PostList extends React.Component {
     const postsToShow = filteredData.length ? filteredData : postsData;
 
     return (
-      <div>
+      <Box>
         {
               !postsData.length
                 ? (
-                  <div>
+                  <Box>
                     <Button
                       variant="contained"
                       color="primary"
@@ -34,11 +36,11 @@ export default class PostList extends React.Component {
                     >
                       {!isDataLoading ? 'Load' : 'Loading...'}
                     </Button>
-                  </div>
+                  </Box>
                 )
                 : (
                   <>
-                    <div>
+                    <Box>
                       <form>
                         <TextField
                           margin="normal"
@@ -47,7 +49,7 @@ export default class PostList extends React.Component {
                           onChange={this.getFilterKeyword}
                         />
                       </form>
-                    </div>
+                    </Box>
                     <List>
                       {postsToShow.map(post => (
                         <Post key={post.id} postData={post} />
@@ -56,7 +58,7 @@ export default class PostList extends React.Component {
                   </>
                 )
             }
-      </div>
+      </Box>
     );
   }
 }

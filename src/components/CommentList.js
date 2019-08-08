@@ -1,6 +1,5 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
+import { Button, List, Box } from '@material-ui/core';
 import Comment from './Comment';
 
 export default class CommentList extends React.Component {
@@ -17,8 +16,8 @@ export default class CommentList extends React.Component {
     const { showComments } = this.state;
 
     return (
-      <div className="comments-list">
-        <div>
+      <Box className="comments-list">
+        <Box>
           <Button
             variant="outlined"
             color="default"
@@ -27,7 +26,7 @@ export default class CommentList extends React.Component {
           >
             {showComments ? 'Hide comments' : 'Show comments'}
           </Button>
-        </div>
+        </Box>
         {
           showComments
           && (
@@ -37,7 +36,7 @@ export default class CommentList extends React.Component {
           )
         }
 
-      </div>
+      </Box>
     );
   }
 }

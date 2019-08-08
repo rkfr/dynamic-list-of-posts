@@ -1,11 +1,11 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import { Typography, Box } from '@material-ui/core';
 
 const User = (props) => {
   const { name, email, address } = props;
 
   return (
-    <div>
+    <Box>
       <Typography
         variant="h6"
         component="h4"
@@ -13,21 +13,21 @@ const User = (props) => {
         {name}
       </Typography>
       <address>
-        <div>
+        <Box>
           <a href={`mailto: ${email}`}>{email}</a>
-        </div>
+        </Box>
         {
           address
           && (
-          <div>
+          <Box>
             <span>{address.city}</span>
             <span>{address.street}</span>
             <span>{address.suite}</span>
-          </div>
+          </Box>
           )
         }
       </address>
-    </div>
+    </Box>
   );
 };
 
