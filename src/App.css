@@ -1,3 +1,26 @@
-.App {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
   text-align: center;
+  margin-bottom: 40px;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.container {
+  max-width: 990px;
+  margin: 0 auto;
 }
