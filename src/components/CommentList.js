@@ -31,7 +31,7 @@ export default class CommentList extends React.Component {
           showComments
           && (
           <List>
-            {comments.map(comment => <Comment key={comment.id} comment={comment} />)}
+            {comments.map(comment => <Comment key={comment.id} {...comment} />)}
           </List>
           )
         }

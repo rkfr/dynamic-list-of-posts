@@ -26,7 +26,10 @@ export default class PostList extends React.Component {
         {
               !postsData.length
                 ? (
-                  <Box>
+                  <Box
+                    display="flex"
+                    justifyContent="center"
+                  >
                     <Button
                       variant="contained"
                       color="primary"
@@ -51,9 +54,7 @@ export default class PostList extends React.Component {
                       </form>
                     </Box>
                     <List>
-                      {postsToShow.map(post => (
-                        <Post key={post.id} postData={post} />
-                      ))}
+                      {postsToShow.map(post => <Post key={post.id} {...post} />)}
                     </List>
                   </>
                 )

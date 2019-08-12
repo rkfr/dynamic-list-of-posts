@@ -10,18 +10,17 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Post = ({ postData }) => {
+const Post = ({
+  title, body, user, comments,
+}) => {
   const classes = useStyles();
-
-  const {
-    title, body, user: { name, email, address }, comments,
-  } = postData;
 
   return (
     <ListItem>
       <Paper className={classes.root}>
         <Typography
           component="h2"
+          variant="h5"
         >
           {title}
         </Typography>
@@ -30,11 +29,7 @@ const Post = ({ postData }) => {
         >
           {body}
         </Typography>
-        <User
-          name={name}
-          email={email}
-          address={address}
-        />
+        <User {...user} />
         <CommentList comments={comments} />
       </Paper>
 

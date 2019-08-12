@@ -1,19 +1,15 @@
 import React from 'react';
-import ListItem from '@material-ui/core/ListItem';
+import { ListItem, Box } from '@material-ui/core';
 import User from './User';
 
-const Comment = ({ comment }) => {
-  const { name, email, body } = comment;
-
-  return (
-    <ListItem>
-      <User
-        name={name}
-        email={email}
-      />
-      <div>{body}</div>
-    </ListItem>
-  );
-};
+const Comment = ({ name, email, body }) => (
+  <ListItem>
+    <User
+      name={name}
+      email={email}
+    />
+    <Box>{body}</Box>
+  </ListItem>
+);
 
 export default Comment;
